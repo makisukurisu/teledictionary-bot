@@ -40,7 +40,7 @@ pdm start_bot
 
 This project is open to contributions. If you want to contribute, please take a look at the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
 
-Use the [issues](/issues) page to report bugs or suggest new features.
+Use the [issues](https://github.com/makisukurisu/teledictionary-bot/issues) page to report bugs or suggest new features.
 
 ## License
 
