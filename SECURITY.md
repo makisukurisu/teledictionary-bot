@@ -12,4 +12,4 @@ Since this project is just starting, all versions are supported. Once we get to 
 ## Reporting a Vulnerability
 
 To report vulnerabilities, use Issues section with a bug report template, or email specified in pyproject.
-If a vulnerability involves leakage of personal data, or other critical information, consider using email.
+If a vulnerability involves leakage of personal data, or other critical information, consider using email, or GitHub vulnerability reporting.
