@@ -6,11 +6,11 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-from telegram.ext import ApplicationBuilder
+from telegram.constants import ParseMode
+from telegram.ext import ApplicationBuilder, Defaults
 
 from teledictionary_bot import handlers
-
-from .settings import settings_instance
+from teledictionary_bot.settings import settings_instance
 
 LOGS_FOLDER = settings_instance.LOGS_FOLDER
 
@@ -41,13 +41,16 @@ def build() -> None:
         .token(
             settings_instance.BOT_TOKEN,
         )
+        .defaults(Defaults(parse_mode=ParseMode.HTML))
         .concurrent_updates(True)  # Enable the concurrent updates processing  # noqa: FBT003
         .build()
     )
 
     app.add_handler(handlers.start_handler)
+    app.add_handler(handlers.help_handler)
+    app.add_handler(handlers.select_dictionary_handler)
 
-    app.run_polling()
+    app.run_polling(drop_pending_updates=True)
 
 
 if __name__ == "__main__":
