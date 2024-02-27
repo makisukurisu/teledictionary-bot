@@ -46,6 +46,12 @@ def build() -> None:
         .build()
     )
 
+    app.add_handler(handlers.add_dictionary_handler)
+    app.add_handler(handlers.list_dictionaries_handler)
+    app.add_handler(handlers.remove_dictionary_handler)
+    app.add_handler(handlers.list_dictionaries_callback_handler)
+    app.add_handler(handlers.edit_dictionary_handler)
+
     app.add_handler(handlers.start_handler)
     app.add_handler(handlers.help_handler)
     app.add_handler(handlers.select_dictionary_handler)

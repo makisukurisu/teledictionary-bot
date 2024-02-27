@@ -8,6 +8,16 @@ class Settings(pydantic_settings.BaseSettings):
         default="Tele-Dictionary",
         description="The name of the bot",
     )
+    BOT_ADMINISTRATORS: list[str] = pydantic.Field(
+        default=[],
+        description="The list of user IDs that are allowed to use the bot",
+    )
+
+    DATABASE_PATH: str = pydantic.Field(
+        default="data/teledictionary_bot.db",
+        description="The path to the database",
+    )
+
     LOG_LEVEL: str = pydantic.Field(
         default="WARNING",
         description="The log level for the bot",

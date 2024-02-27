@@ -3,6 +3,17 @@ from teledictionary_bot.enums import CommandNames
 
 select_dictionary = "Select a dictionary"
 remove_data = "Remove my data"
+invalid_data = "You have entered invalid data, cannot process your request"
+
+dictionary_added = """
+Dictionary added:
+Name: {name}
+Description: {description}
+"""
+
+dictionaries_list = "List of available dictionaries:"
+
+dictionary_removed = "Dictionary removed"
 
 start_message = (
     """
