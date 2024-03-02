@@ -36,3 +36,7 @@ When you select a dictionary, bot will store your user_id, (client) language and
 
 You can remove your data from our database at any time by using <i>{remove_data}</i> option.
 """
+
+select_dictionary_text = "Select a dictionary that you would like to use:"
+choose_dictionary_text = "You have selected a new dictionary!"
+remove_data_text = "Your data was removed from our database!"

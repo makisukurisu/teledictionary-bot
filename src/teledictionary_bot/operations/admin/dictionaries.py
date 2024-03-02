@@ -5,6 +5,7 @@ from telegram.ext import ContextTypes
 
 from teledictionary_bot.database import dictionaries
 from teledictionary_bot.enums import CommandNames, StringNames
+from teledictionary_bot.models.dictionary import Dictionary
 from teledictionary_bot.settings import settings_instance
 from teledictionary_bot.strings import get
 
@@ -24,17 +25,12 @@ async def add_dictionary(update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
             update.message.text.replace("/" + CommandNames.ADD_DICTIONARY.value, "", 1).strip()
         )
 
-        required_keys = ["name"]
-        if not all(key in data for key in required_keys):
-            raise ValueError("Key not found")
+        dictionary = Dictionary(**data)
     except ValueError:
         await update.message.reply_text(get.get_string(StringNames.INVALID_DATA, update))
         raise
 
-    dictionary = dictionaries.add_dictionary(
-        name=data["name"],
-        description=data.get("description", ""),
-    )
+    dictionary = dictionaries.add_dictionary(dictionary)
 
     message_text = get.get_string(StringNames.DICTIONARY_ADDED, update).format(
         name=dictionary.name,
