@@ -55,6 +55,8 @@ def build() -> None:
     app.add_handler(handlers.start_handler)
     app.add_handler(handlers.help_handler)
     app.add_handler(handlers.select_dictionary_handler)
+    app.add_handler(handlers.choose_dictionary_handler)
+    app.add_handler(handlers.search_handler)
 
     app.run_polling(drop_pending_updates=True)
 

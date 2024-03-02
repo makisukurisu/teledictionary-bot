@@ -4,7 +4,7 @@ This file contains all the handlers that the bot uses to respond to updates.
 
 import re
 
-from telegram.ext import CallbackQueryHandler, CommandHandler
+from telegram.ext import CallbackQueryHandler, CommandHandler, InlineQueryHandler
 
 from teledictionary_bot import operations
 from teledictionary_bot.enums import CommandNames
@@ -49,3 +49,8 @@ select_dictionary_handler = CallbackQueryHandler(
     pattern=CommandNames.SELECT_DICTIONARY.value,
     callback=operations.select_dictionary.select_dictionary,
 )
+choose_dictionary_handler = CallbackQueryHandler(
+    pattern=re.compile(r"^" + CommandNames.CHOOSE_DICTIONARY.value + r";(\d+)$"),
+    callback=operations.select_dictionary.choose_dictionary,
+)
+search_handler = InlineQueryHandler(callback=operations.search.search, pattern=re.compile(r".+"))

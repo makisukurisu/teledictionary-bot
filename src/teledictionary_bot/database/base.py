@@ -22,6 +22,7 @@ class DatabaseHandler:
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT NOT NULL,
                     description TEXT DEFAULT "",
+                    provider_name TEXT NOT NULL,
                     UNIQUE(name)
                 )
                 """
@@ -33,6 +34,7 @@ class DatabaseHandler:
                     user_id INTEGER NOT NULL,
                     dictionary_id INTEGER NOT NULL,
                     FOREIGN KEY (dictionary_id) REFERENCES dictionaries(id)
+                    UNIQUE(user_id)
                 )
                 """
             )
